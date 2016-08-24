@@ -1,0 +1,44 @@
+
+# List declared aliases, functions
+
+alias listaliases="alias | sed 's/=.*//'"
+alias listfunctions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _prefixed functions
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+
+# tmux defaults to tmux -2 for full color support
+alias tmux='tmux -2'
+
+# cd & ls a directory
+alias cdl='cd $1;ls'
+
+
+# alias for cd 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../../"
+
+alias xi='exit'
+alias g="git"
+
+alias tree="tree -A"
+alias treed="tree -d"
+
+# copy pwd to xsel or pbcopy based on OS
+if [ "$(uname -s)" == "Linux" ]; then
+  alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
+else
+  alias cpwd='pwd|tr -d "\n"|pbcopy'
+fi
+   
