@@ -1,0 +1,20 @@
+!#/usr/env bash
+
+# swap ctrl and caps on linux
+function swapctrl() {
+    gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
+    echo "swapped ctrl with caps"
+}
+
+# mk and cd
+function mknd() {
+    mkdir $1
+    cd $_
+}
+
+# cd and launch tmux
+function stmux() {
+    cd $1
+    tmux
+}
+
