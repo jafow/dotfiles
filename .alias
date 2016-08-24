@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # List declared aliases, functions
 
@@ -17,28 +18,38 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../../"
+alias -- -="cd -"
+
+alias tree="tree -A"
+alias treed="tree -d"
+
+alias xi='exit'
+alias g="git"
+
+alias codesmith="cd ~/Development/codesmith"
+alias dev="cd ~/Development"   
+
 # tmux defaults to tmux -2 for full color support
 alias tmux='tmux -2'
 
 # cd & ls a directory
 alias cdl='cd $1;ls'
 
-
-# alias for cd 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../../"
-
-alias xi='exit'
-alias g="git"
-
-alias tree="tree -A"
-alias treed="tree -d"
-
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
 else
+
+# IP address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
   alias cpwd='pwd|tr -d "\n"|pbcopy'
 fi
-   
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
