@@ -35,6 +35,11 @@ done
 
 if [ "$OS" = "OSX" ]; then
     for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.osx; do
-            [ -f "$DOTFILE" ] && . "$DOTFILE"
-            done
-            fi
+        [ -f "$DOTFILE" ] && . "$DOTFILE"
+        done
+fi
+
+# source nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && "$NVM_DIR/nvm.sh"
+
