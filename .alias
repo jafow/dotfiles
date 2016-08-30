@@ -30,7 +30,7 @@ alias xi='exit'
 alias g="git"
 
 alias codesmith="cd ~/Development/codesmith"
-alias dev="cd ~/Development"   
+alias dev="cd ~/Development"
 
 # tmux defaults to tmux -2 for full color support
 alias tmux='tmux -2'
@@ -50,6 +50,7 @@ alias localip="ipconfig getifaddr en0"
 fi
 
 # One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS;
+do
+    alias "$method"="lwp-request -m '$method'"
 done
