@@ -1,0 +1,31 @@
+
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# Colors for the prompt
+blue="\033[0;36m"
+white="\033[0;37m"
+green="\033[0;32m"
+
+# Brackets needed around non-printable characters in PS1
+ps1_blue='\['"$blue"'\]'
+ps1_green='\['"$green"'\]'
+ps1_white='\['"$white"'\]'
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# The following shows current git branch
+if [ "$color_prompt" = yes ]; then
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[32m\][\u \W] $(__git_ps1 " (%s)")\[\e[0m\]\n$ '
+fi
+
+# source git-prompt to add to PS1
+source ~/.git-prompt.sh
