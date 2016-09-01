@@ -3,11 +3,9 @@ execute pathogen#infect()
 " syntax on
 " try slm syntax highlighting syntax setting
 syntax enable
-" original filetype setting
-" filetype off
+filetype off
 " try slm syntax highlighng filetyp setting
 filetype plugin indent on
-
 "set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
