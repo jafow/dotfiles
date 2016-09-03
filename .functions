@@ -1,4 +1,4 @@
-!#/usr/env bash
+#! /usr/env bash
 
 # swap ctrl and caps on linux
 function swapctrl() {
@@ -25,4 +25,14 @@ function headers() {
     xargs sudo apt-get -y purge
     echo "Purged!"
 }
+
+# open an Ebook in a new running tmux session
+function openbook() {
+    echo 'opening book'
+    tmux new -s ebooks -d
+    tmux send-keys -t ebooks 'cd ~/Documents/Ebooks' C-m;
+    tmux send-keys -t ebooks 'xdg-open $1'
+}
+
+
 
