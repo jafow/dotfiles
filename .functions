@@ -28,10 +28,9 @@ function headers() {
 
 # open an Ebook in a new running tmux session
 function openbook() {
-    echo 'opening book'
-    tmux new -s ebooks -d
-    tmux send-keys -t ebooks 'cd ~/Documents/Ebooks' C-m;
-    tmux send-keys -t ebooks 'xdg-open $1'
+    echo 'opening book' $1;
+    cd ~/Documents/Ebooks;
+    xdg-open $1;
 }
 
 
