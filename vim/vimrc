@@ -125,7 +125,7 @@ set grepprg=grep\ -nH\ $*
 se t_Co=16
 
 " Solarized Settings
-set background=light
+set background=dark
 " This Sets Solarized theme values in VIM
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
