@@ -33,5 +33,9 @@ function openbook() {
     xdg-open $1;
 }
 
-
+# launch a project folder in ~/Development
+function project() {
+    cd ~/Development/$1
+    vim
+}
 
