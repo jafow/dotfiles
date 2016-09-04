@@ -35,7 +35,6 @@ done
 
 # source nvm
 export NVM_DIR="$HOME/.nvm"
-echo $NVM_DIR is nvm dir
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # source git-completion
