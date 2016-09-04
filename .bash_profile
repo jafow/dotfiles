@@ -29,21 +29,14 @@ fi
 
 # Finally we can source the dotfiles (order matters)
 
-for DOTFILE in "$DOTFILES_DIR"/.{function,path,env,alias,prompt,npm-completion}; do
+for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{functions,alias,prompt,npm-completion}; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
-    echo "did this: $DOTFILE"
 done
-
-if [ "$OS" = "OSX" ]; then
-    for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.osx; do
-        [ -f "$DOTFILE" ] && . "$DOTFILE"
-        done
-fi
 
 # source nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && "$NVM_DIR/nvm.sh"
 
 # source git-completion
-source "$DOTFILES_DIR/.git-completion.bash"
+source "$DOTFILES_DIR/dotfiles/.git-completion.bash"
 
