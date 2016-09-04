@@ -1,0 +1,4 @@
+#! /usr/env bash
+tmux new -s slack -d;
+tmux send-keys -t slack 'slack' C-m
+
