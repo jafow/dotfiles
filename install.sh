@@ -16,6 +16,7 @@ ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/.gitignore_global" ~
 ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
+ln -sfv "$DOTFILES_DIR/bin" ~
 
 # Package managers & packages
 
