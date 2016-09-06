@@ -34,9 +34,12 @@ alias dev="cd ~/Development"
 
 # tmux defaults to tmux -2 for full color support
 alias tmux='tmux -2'
+alias tmxu='tmux'
 
 # cd & ls a directory
 alias cdl='cd $1;ls'
+
+alias python='python3'
 
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
