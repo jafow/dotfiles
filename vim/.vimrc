@@ -111,8 +111,6 @@ filetype plugin on
 
 "Turns on automatic indent from plugins
 filetype indent on
-"allows empty .tex files to open as latex files
-let g:Tex_flavor="latex"
 " Change defualt tex output to PDF
 let g:Tex_DefaultTargetFormat="pdf"
 " IMPORTANT: grep will sometimes skip displaying the file name if you
