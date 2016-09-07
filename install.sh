@@ -19,7 +19,7 @@ ln -sfv "$DOTFILES_DIR/.git-prompt.sh" ~
 ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/bin" ~
 ln -sfv "$DOTFILES_DIR/vim" ~/.vim
-ln -sfv "DOTFILES_DIR/vim/.vimrc" ~
+ln -sfv "$DOTFILES_DIR/vim/.vimrc" ~
 # Package managers & packages
 
 # . "$DOTFILES_DIR/install/brew.sh"
