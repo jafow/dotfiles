@@ -529,4 +529,7 @@ __git_ps1 ()
 
 	return $exit
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> aofl

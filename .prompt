@@ -28,4 +28,4 @@ else
 fi
 
 # source git-prompt to add to PS1
-source ~/.git-prompt.sh
+source $DOTFILES_DIR/.git-prompt.sh
