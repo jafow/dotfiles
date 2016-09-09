@@ -39,3 +39,10 @@ function project() {
     vim
 }
 
+# launch chrome from OSX terminal
+function chrome() {
+    _OS="$(uname)"
+    if [ $_OS="Darwin" ]; then
+        open -a "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+    fi
+}
