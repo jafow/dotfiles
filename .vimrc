@@ -35,6 +35,7 @@ set nocompatible         " dont care "
 set nobackup             " disable backups"
 set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
+set relativenumber       " show line nubmer relative to cursor
 set spell
 set mouse=nicr
 setlocal spell spelllang=en_us
@@ -99,7 +100,7 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " make Q save and quite
-nnoremap <silent> Q ZZ
+" nnoremap <silent> Q ZZ
 
 " Change snipmate trigger to ,Tab
 " Makes it compatible with tab completion
@@ -123,7 +124,7 @@ set grepprg=grep\ -nH\ $*
 se t_Co=16
 
 " Solarized Settings
-set background=dark
+set background=light
 " This Sets Solarized theme values in VIM
 "let g:solarized_termtrans=1
 let g:solarized_termcolors=256
