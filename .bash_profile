@@ -3,7 +3,7 @@
 if [ "$(uname -s)" = "Darwin" ]; then
 OS="OSX"
 else
-OX=$(uname -s)
+OS=$(uname -s)
 fi
 
 # Add tab completion for many Bash commands
@@ -32,6 +32,11 @@ fi
 for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{functions,alias,prompt,npm-completion}; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
+
+# alias vim as macvim on osx
+if [ $OS="OSX" ]; then
+    alias vim="mvim -v";
+fi;
 
 # source nvm
 export NVM_DIR="$HOME/.nvm"
