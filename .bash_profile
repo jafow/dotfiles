@@ -33,10 +33,6 @@ for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{functions,alias,prompt,npm-completion}
     [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
-# alias vim as macvim on osx
-if [ $OS="OSX" ]; then
-    alias vim="mvim -v";
-fi;
 
 # source nvm
 export NVM_DIR="$HOME/.nvm"
