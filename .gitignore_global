@@ -1,4 +1,6 @@
-._*
+_*
 node_modules
 .DS_Store
+.netrwhist
+
 
