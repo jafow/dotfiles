@@ -39,18 +39,25 @@ alias tmxu='tmux'
 # cd & ls a directory
 alias cdl='cd $1;ls'
 
+# alias vim as macvim on osx
+if [ "$(uname -s)" == "Darwin" ]; then
+    alias vim="mvim -v";
+elif [ "$(uname -s)" = "Linux" ]; then
+    alias vim="vim"
+fi;
+
 alias python='python3'
 
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
 else
+  alias cpwd='pwd|tr -d "\n"|pbcopy'
+fi
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
-  alias cpwd='pwd|tr -d "\n"|pbcopy'
-fi
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS;
