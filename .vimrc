@@ -95,7 +95,6 @@ nnoremap tj :tabnext<CR>
 nnoremap tk :tabprev<CR>
 nnoremap tl :tablast<CR>
 nnoremap tt :tabedit<Space>
-nnoremap tn :tabnew<CR>:NERDTree<CR>
 nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
@@ -250,23 +249,6 @@ augroup Snips
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
 augroup END
 
-" Alias NERDTree to nerd
-cnoreabbrev <expr> nerd ((getcmdtype() is# ":" && getcmdline() is# "nerd")?("NERDTreeToggle"):("nerd"))
-
-" NERDTree show hidden files
-let NERDTreeShowHidden=1
-" Let NERDTree autoopen when vim is opened with no files
-function! StartUp()
-  if 0 == argc()
-    NERDTree
-  end
-endfunction
-
-" NERDTree Commenter Defaults
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
 
 augroup StartIt
   autocmd!
@@ -290,49 +272,6 @@ cnoreabbrev <expr> rbHelp ((getcmdtype() is# ":" && getcmdline() is# "rbHelp")?(
 " Alias sudo overwrite
 cnoreabbrev <expr> sudowrite ((getcmdtype() is# ":" && getcmdline() is# "sudowrite")?(":w !sudo tee %"):("sudowrite"))
 
-" easymotion mappings
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotnion-t2)
-
-" easyMotion search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" Search in line
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-
-" Vim Airline
-set laststatus=2
-set ttimeoutlen=50
-" Auto Display all buffers
-"let g:airline_left_sep = '>'
-"let g:airline_right_sep = '<'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme="badwolf"
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_powerline_separators=0
 
 let g:tmuxline_preset={
