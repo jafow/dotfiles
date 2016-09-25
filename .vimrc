@@ -6,7 +6,7 @@ syntax enable
 filetype off
 " try slm syntax highlighng filetyp setting
 filetype plugin indent on
-"set foldmethod=syntax"
+set foldmethod=manual
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
