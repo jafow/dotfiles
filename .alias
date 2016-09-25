@@ -48,6 +48,9 @@ fi;
 
 alias python='python3'
 
+# enable dropbox CLI with this script
+alias dbox='/usr/bin/python ~/bin/dropbox.py'
+
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
