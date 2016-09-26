@@ -40,7 +40,7 @@ alias tmxu='tmux'
 alias cdl='cd $1;ls'
 
 alias python='python3'
-
+alias sandbox='ssh jared.fowler.test.abcmouse.com'
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
