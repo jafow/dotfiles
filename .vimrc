@@ -253,7 +253,6 @@ augroup END
 augroup StartIt
   autocmd!
   autocmd BufNewFile,BufReadPost *.vimrc call TwoSpace()
-  autocmd VimEnter * call StartUp()
 
   autocmd FocusLost * set nornu
   autocmd FocusGained * set rnu
