@@ -165,11 +165,11 @@ endfunction
 " Set bar at max width in accordance with Google style guide
 " aka Closure linter
 function! ClosureIt()
-    setlocal textwidth=80
+    " setlocal textwidth=80
     setlocal colorcolumn=+1
-    hi ColorColumn  ctermbg=246
-    hi OverLength   ctermfg=125 ctermbg=250
-    match OverLength /\%>80v.\+/
+    " hi ColorColumn  ctermbg=246
+    " hi OverLength   ctermfg=125 ctermbg=250
+    " match OverLength /\%>80v.\+/
 endfunction
 
 function! KS()
@@ -250,17 +250,9 @@ augroup Snips
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
 augroup END
 
-" Alias NERDTree to nerd
-cnoreabbrev <expr> nerd ((getcmdtype() is# ":" && getcmdline() is# "nerd")?("NERDTreeToggle"):("nerd"))
-
 " NERDTree show hidden files
 let NERDTreeShowHidden=1
 " Let NERDTree autoopen when vim is opened with no files
-function! StartUp()
-  if 0 == argc()
-    NERDTree
-  end
-endfunction
 
 " NERDTree Commenter Defaults
 let g:NERDSpaceDelims = 1
@@ -271,7 +263,6 @@ let g:NERDCompactSexyComs = 1
 augroup StartIt
   autocmd!
   autocmd BufNewFile,BufReadPost *.vimrc call TwoSpace()
-  autocmd VimEnter * call StartUp()
 
   autocmd FocusLost * set nornu
   autocmd FocusGained * set rnu
