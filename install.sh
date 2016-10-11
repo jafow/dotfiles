@@ -4,13 +4,16 @@
 
 export DOTFILES_DIR EXTRA_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BUNDLE_DIR=~/.vim/bundle
 
 # Update dotfiles itself first
 
 # [ -d "$DOTFILES_DIR/.git" ] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
 
-# Bunch of symlinks
+# make .vim and bundle
+mkdir -p "$BUNDLE_DIR"
 
+# Bunch of symlinks
 ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/.inputrc" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
@@ -19,7 +22,8 @@ ln -sfv "$DOTFILES_DIR/.git-prompt.sh" ~
 ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/bin" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
-ln -sfvh "$DOTFILES_DIR/vim" ~/.vim
+ln -sfv "$DOTFILES_DIR/.vim" ~
+
 # Package managers & packages
 
 # . "$DOTFILES_DIR/install/brew.sh"
@@ -32,4 +36,7 @@ if [ "$(uname)" == "Darwin" ]; then
     . "$DOTFILES_DIR/install/gem.sh"
         ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
 fi
+
+cd ~/.vim/bundle && git submodule update --init;
+cd ~/;
 
