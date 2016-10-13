@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+tmux new -s abc -d -n "sandbox"
+
+tmux send-keys "vim-sandbox" C-m
+tmux send-keys ":/member" C-m
+tmux send-keys ":vsp" C-m
+tmux split-window -v
+tmux resize-pane -D 10
+tmux send-keys "sandbox" C-m
+tmux send-keys "cd member.abcmouse.com" C-m
+
+tmux new-window -t abc:1 -n "local"
+tmux send-keys "dev" C-m
+tmux split-window -v
+tmux select-pane -t 1
+tmux send-keys "dev" C-m
+tmux select-window -t 0
+tmux attach -t abc
+
