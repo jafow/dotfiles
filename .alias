@@ -21,7 +21,7 @@ alias la='ls -A'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../../"
-alias -- -="cd -"
+alias g-="cd -"
 
 alias tree="tree -A"
 alias treed="tree -d"
