@@ -22,14 +22,10 @@ ln -sfv "$DOTFILES_DIR/.git-prompt.sh" ~
 ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/bin" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
-ln -sfv "$DOTFILES_DIR/.vim" ~
 
 # Package managers & packages
 
-# . "$DOTFILES_DIR/install/brew.sh"
-# . "$DOTFILES_DIR/install/bash.sh"
-# . "$DOTFILES_DIR/install/npm.sh"
-# . "$DOTFILES_DIR/install/pip.sh"
+. "$DOTFILES_DIR/install/npm.sh"
 
 if [ "$(uname)" == "Darwin" ]; then
     . "$DOTFILES_DIR/install/brew-cask.sh"
@@ -37,6 +33,6 @@ if [ "$(uname)" == "Darwin" ]; then
         ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
 fi
 
-cd ~/.vim/bundle && git submodule update --init;
-cd ~/;
+# copy over plugins
+cp -r "$DOTFILES_DIR/.vim" "$HOME"
 
