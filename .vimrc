@@ -102,6 +102,12 @@ nnoremap td :tabclose<CR>
 " make Q save and quite
 " nnoremap <silent> Q ZZ
 
+" remap ; to ; to save a button press
+nnoremap ; :
+
+" show buffer list and navigate to one
+nnoremap ,b :ls<CR>:buffer<Space>
+
 " Change snipmate trigger to ,Tab
 " Makes it compatible with tab completion
 imap <leader><tab> <Plug>snipMateNextOrTrigger
