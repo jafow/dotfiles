@@ -29,7 +29,7 @@ fi
 
 # Finally we can source the dotfiles (order matters)
 
-for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{functions,alias,prompt,npm-completion}; do
+for DOTFILE in "$DOTFILES_DIR"/dotfiles/.{functions,alias,prompt,profile,npm-completion}; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
