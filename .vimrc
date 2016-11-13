@@ -99,7 +99,13 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " make Q save and quite
-" nnoremap <silent> Q ZZ
+nnoremap <silent> Q ZZ
+
+" remap : to ; to save a button press
+nnoremap ; :
+
+" show buffer list
+nnoremap ,b :ls<CR>:buffer<Space>
 
 " Change snipmate trigger to ,Tab
 " Makes it compatible with tab completion
@@ -145,8 +151,9 @@ let g:jshint_highlight_color ="Red"
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]"]
 let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'standard']
 let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 " Snipmate Settings
 let g:snipMate = {}
@@ -320,11 +327,6 @@ command! RotateWindow call RotateWindowsFunc()
 " Keeps cursor in middle of the screen always.
 let g:scrollfix=50
 let g:fixeof=0
-
-" ELM Bindings
-nnoremap <leader>el :ElmEvalLine<CR>
-vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
-nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Nginx
 au BufRead,BufNew *.nginx.conf set filetype=nginx
