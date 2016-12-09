@@ -60,7 +60,7 @@ function xtoggletouchpad() {
         xinput enable "$TOUCH_DEVICE"
         printf "Touchpad enabled\n"
     elif [ "$ENABLED" -eq "1" ]; then
-        xinput disable '$TOUCH_DEVICE'
+        xinput disable "$TOUCH_DEVICE"
         printf "Touchpad disabled\n"
     else
         printf "Error toggling touchpad"
