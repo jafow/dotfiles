@@ -46,3 +46,26 @@ function chrome() {
         open -a "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
     fi
 }
+
+# Turn touchpad on/off so fat hands dont always move the mouse
+function xtoggletouchpad() {
+    TOUCH_DEVICE=$(xinput --list --short | grep Touchpad |
+        cut -f2 | sed -e 's/^.*id=//')
+    ENABLED=$(xinput list-props "$TOUCH_DEVICE" |
+        awk '/^\tDevice Enabled \([0-9]+\):\t[01]/ {print $NF}')
+
+    printf "Device targeted: %s\n" "$TOUCH_DEVICE"
+
+    if [ "$ENABLED" -eq "0" ]; then
+        xinput enable "$TOUCH_DEVICE"
+        printf "Touchpad enabled\n"
+    elif [ "$ENABLED" -eq "1" ]; then
+        xinput disable '$TOUCH_DEVICE'
+        printf "Touchpad disabled\n"
+    else
+        printf "Error toggling touchpad"
+        exit $?
+    fi
+}
+# the awk command from here:
+# http://unix.stackexchange.com/questions/258456/using-xinput-to-get-device-state
