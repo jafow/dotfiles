@@ -57,9 +57,6 @@ else
   alias cpwd='pwd|tr -d "\n"|pbcopy'
 fi
 
-# requirejs optimizer script
-alias rjo='r.js -o'
-
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
