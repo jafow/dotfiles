@@ -31,3 +31,5 @@ pum=pull upstream master
 pom=pull origin master
 subup=submodule update
 diffm=diff --dirstat=files,cumulative --name-only HEAD master
+[diff]
+	tool = vimdiff
