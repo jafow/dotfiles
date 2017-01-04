@@ -387,3 +387,8 @@ nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Nginx
 au BufRead,BufNew *.nginx.conf set filetype=nginx
+
+" avoid ugly default difftool colorscheme
+if &diff
+    colorscheme apprentice
+endif
