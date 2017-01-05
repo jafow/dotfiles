@@ -21,7 +21,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 # The following shows current git branch
-if [ -n "$SSH_CLIENT" ]; then
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
     PS2='${debian_chroot:+($debian_chroot)}\[\e[1;34m\][\u@\h \[\e[0;37m\]\W]\[\e[1;35m\] $(__git_ps1 " (%s)")\[\e[0m\]\n$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\[\e[1;34m\][\u \[\e[0;37m\]\W]\[\e[1;35m\] $(__git_ps1 " (%s)")\[\e[0m\]\n$ '
