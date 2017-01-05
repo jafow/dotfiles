@@ -33,3 +33,7 @@ subup=submodule update
 diffm=diff --dirstat=files,cumulative --name-only HEAD master
 [diff]
 	tool = vimdiff
+[merge]
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
