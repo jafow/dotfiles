@@ -21,7 +21,7 @@ alias la='ls -A'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../../"
-alias -- -="cd -"
+alias g-="cd -"
 
 alias tree="tree -A"
 alias treed="tree -d"
@@ -47,8 +47,9 @@ elif [ "$(uname -s)" = "Linux" ]; then
     alias vim="vim"
 fi;
 
-# alias python='python3'
+alias python='python3'
 alias sandbox='ssh jared.fowler.test.abcmouse.com'
+alias vim-sandbox='vim scp://jared.fowler.test.abcmouse.com/ /home/jared.fowler/'
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
@@ -59,6 +60,9 @@ fi
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
+
+# get current unix timestamp onto osx clipboard
+alias uts="date +%s | pbcopy"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS;
