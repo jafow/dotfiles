@@ -29,3 +29,7 @@ gk=gitk --all&
 gx=gitx --all
 pum=pull upstream master
 pom=pull origin master
+[merge]
+	tool = vimdiff
+[diff]
+	tool = vimdiff
