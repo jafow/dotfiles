@@ -22,6 +22,7 @@ ln -sfv "$DOTFILES_DIR/.git-prompt.sh" ~
 ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/bin" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
+ln -sfv "$DOTFILES_DIR/.vim" ~
 
 # Package managers & packages
 
