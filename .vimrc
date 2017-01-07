@@ -155,11 +155,8 @@ let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
 
-" Snipmate Settings
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['jsx'] = 'javascript,jsx'
-
+" UltiSnips!
+let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
 " Set tabs to two spaces
 function! TwoSpace()
   setlocal shiftwidth=2

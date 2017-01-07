@@ -1,0 +1,1 @@
+/Users/jared.fowler/dotfiles/.vim/bundle/ultisnips/ftdetect/snippets.vim
