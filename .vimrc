@@ -37,7 +37,7 @@ set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
 set spell
-set statusline=%{fugitive#statusline()}
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
@@ -158,6 +158,10 @@ let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
 
 " UltiSnips!
 let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
+
+" Overwrite Netrw default cwd to track to dir current open dir
+let g:netrw_keepdir=0
+
 " Set tabs to two spaces
 function! TwoSpace()
   setlocal shiftwidth=2
@@ -274,6 +278,9 @@ augroup StartIt
   autocmd InsertEnter * set nornu
   autocmd InsertLeave * set rnu
 augroup END
+
+" Keeps fugitive buffers from getting out of hand
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Alias :UndotreeToggle to ent
 cnoreabbrev <expr> ents ((getcmdtype() is# ":" && getcmdline() is# "ents")?("UndotreeToggle"):("ents"))
