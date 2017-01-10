@@ -37,6 +37,7 @@ set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
 set spell
+set statusline=%{fugitive#statusline()}
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
