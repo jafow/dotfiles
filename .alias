@@ -48,8 +48,12 @@ elif [ "$(uname -s)" = "Linux" ]; then
 fi;
 
 alias python='python3'
+
+# sandbox aliases
 alias sandbox='ssh jared.fowler.test.abcmouse.com'
 alias vim-sandbox='vim scp://jared.fowler.test.abcmouse.com/ /home/jared.fowler/'
+alias mntbox='sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=Sandbox'
+
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
