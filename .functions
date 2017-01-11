@@ -49,6 +49,5 @@ function chrome() {
 
 # build with r.js optimizer quietly unless error
 function ro() {
-    path=$1
-    r.js -o "$path" logLevel=3
+    r.js -o $1 logLevel=3
 }
