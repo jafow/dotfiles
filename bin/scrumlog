@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+echo "Time for another scrum log"
+vim + -c ":r! printf '\#\# \%s' `date '+\%Y-\%m-\%d'`" ~/Documents/scrum-log.md
+
