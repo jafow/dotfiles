@@ -26,7 +26,7 @@ ln -sfv "$DOTFILES_DIR/.vim" ~
 
 # Package managers & packages
 
-. "$DOTFILES_DIR/install/npm.sh"
+. "$DOTFILES_DIR/npm.sh"
 
 if [ "$(uname)" == "Darwin" ]; then
     . "$DOTFILES_DIR/install/brew-cask.sh"
