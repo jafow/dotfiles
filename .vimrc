@@ -155,6 +155,7 @@ let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]"]
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
+let b:syntastic_javascript_eslint_exec = system('npm-which eslint')
 
 " UltiSnips!
 let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
