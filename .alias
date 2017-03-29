@@ -29,13 +29,12 @@ alias treed="tree -d"
 alias xi='exit'
 alias g="git"
 
-alias codesmith="cd ~/Development/codesmith"
 alias dev="cd ~/Development"
 
 # tmux defaults to tmux -2 for full color support
 alias tmux='tmux -2'
 alias tmxu='tmux'
-alias tmxat='tmux attach -t $1'
+alias tat='tmux attach -t $1'
 
 # cd & ls a directory
 alias cdl='cd $1;ls'
@@ -47,9 +46,15 @@ elif [ "$(uname -s)" = "Linux" ]; then
     alias vim="vim"
 fi;
 
-alias python='python3'
+# sandbox aliases
 alias sandbox='ssh jared.fowler.test.abcmouse.com'
 alias vim-sandbox='vim scp://jared.fowler.test.abcmouse.com/ /home/jared.fowler/'
+alias mntbox='sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=Sandbox'
+
+# aofljs build aliases
+alias bapp='node ~/Development/tools_backup/index.js --skip-sync build project -a'
+alias ball='node ~/Development/tools_backup/index.js --skip-sync build project'
+
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'

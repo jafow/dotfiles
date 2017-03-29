@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+# Use local version of a node module if it exists
+# Source: https://github.com/pixelastic/oroshi/blob/master/scripts/bin/npm-which
+
+npm_bin=$(npm bin)
+bin_name=$1
+local_path="${npm_bin}/${bin_name}"
+
+[[ -f $local_path ]] && echo "$local_path" && exit 0
+
+which "$bin_name"
+

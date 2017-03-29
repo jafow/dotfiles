@@ -36,6 +36,7 @@ set nobackup             " disable backups"
 set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 set spell
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set mouse=nicr
@@ -109,6 +110,8 @@ nnoremap ; :
 " show buffer list and navigate to one
 nnoremap ,b :ls<CR>:buffer<Space>
 
+" vertical resize
+nnoremap ,vz :vertical<Space>resize<Space>
 " Change snipmate trigger to ,Tab
 " Makes it compatible with tab completion
 imap <leader><tab> <Plug>snipMateNextOrTrigger
