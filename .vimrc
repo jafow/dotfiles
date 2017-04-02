@@ -1,11 +1,11 @@
 execute pathogen#infect()
 " original syntax setting
-" syntax on
+syntax on
 " try slm syntax highlighting syntax setting
-syntax enable
+" syntax enable
 filetype off
 " try slm syntax highlighng filetyp setting
-filetype plugin indent on
+" filetype plugin indent on
 "set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
@@ -29,7 +29,6 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal"s title
-set visualbell           " don"t beep
 set noerrorbells         " don"t beep"
 set nocompatible         " dont care "
 set nobackup             " disable backups"
@@ -37,7 +36,7 @@ set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
 set spell
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
@@ -100,11 +99,8 @@ nnoremap tn :tabnew<CR>:NERDTree<CR>
 nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
-" make Q save and quite
-" nnoremap <silent> Q ZZ
-
 " remap ; to ; to save a button press
-nnoremap ; :
+" nnoremap ; :
 
 " show buffer list and navigate to one
 nnoremap ,b :ls<CR>:buffer<Space>
@@ -140,9 +136,6 @@ let g:solarized_termcolors=256
 
 "Set vim Colorscheme
 colorscheme solarized
-
-" Toggle Solarized background
-" call togglebg#map("<F5>")
 
 " Syntastic Settings
 let g:syntastic_mode_map={"mode": "active","active_filetypes": ["vim"],"passive_filetypes": []}"
@@ -283,40 +276,10 @@ augroup END
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Alias :UndotreeToggle to ent
-cnoreabbrev <expr> ents ((getcmdtype() is# ":" && getcmdline() is# "ents")?("UndotreeToggle"):("ents"))
-
-" Alias Helptags to rbHelp, This makes way more sense to me and will be
-" easier to remember
-cnoreabbrev <expr> rbHelp ((getcmdtype() is# ":" && getcmdline() is# "rbHelp")?("Helptags"):("rbHelp"))
-
-" Alias sudo overwrite
-cnoreabbrev <expr> sudowrite ((getcmdtype() is# ":" && getcmdline() is# "sudowrite")?(":w !sudo tee %"):("sudowrite"))
-
-" easymotion mappings
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotnion-t2)
-
-" easyMotion search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" Search in line
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-
 " Vim Airline
 set laststatus=2
 set ttimeoutlen=50
-" Auto Display all buffers
-"let g:airline_left_sep = '>'
-"let g:airline_right_sep = '<'
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme="badwolf"
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -336,7 +299,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_powerline_separators=0
+" let g:tmuxline_powerline_separators=0
 
 let g:tmuxline_preset={
     \ 'a': '#S',
@@ -376,20 +339,10 @@ function! ConvertSpace()
 endfunction
 command! TabSpaceConvert call ConvertSpace()
 
-function! RotateWindowsFunc()
-  wincmd H
-endfunction
-command! RotateWindow call RotateWindowsFunc()
-
 " set scrollfix
 " Keeps cursor in middle of the screen always.
 let g:scrollfix=50
 let g:fixeof=0
-
-" ELM Bindings
-nnoremap <leader>el :ElmEvalLine<CR>
-vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
-nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Nginx
 au BufRead,BufNew *.nginx.conf set filetype=nginx
