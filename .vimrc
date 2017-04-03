@@ -29,7 +29,6 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal"s title
-set visualbell           " don"t beep
 set noerrorbells         " don"t beep"
 set nocompatible         " dont care "
 set nobackup             " disable backups"
@@ -38,7 +37,6 @@ set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set spell
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
@@ -105,7 +103,7 @@ nnoremap td :tabclose<CR>
 " nnoremap <silent> Q ZZ
 
 " remap ; to ; to save a button press
-nnoremap ; :
+" nnoremap ; :
 
 " show buffer list and navigate to one
 nnoremap ,b :ls<CR>:buffer<Space>
@@ -316,9 +314,8 @@ set ttimeoutlen=50
 " Auto Display all buffers
 "let g:airline_left_sep = '>'
 "let g:airline_right_sep = '<'
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme="badwolf"
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
