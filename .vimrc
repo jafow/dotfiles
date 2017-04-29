@@ -1,12 +1,7 @@
 execute pathogen#infect()
-" original syntax setting
 syntax on
-" try slm syntax highlighting syntax setting
-" syntax enable
 filetype off
-" try slm syntax highlighng filetyp setting
-" filetype plugin indent on
-"set foldmethod=syntax"
+set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -36,7 +31,6 @@ set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
 set spell
-" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
