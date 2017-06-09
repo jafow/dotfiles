@@ -51,3 +51,11 @@ function chrome() {
 function ro() {
     r.js -o $1 logLevel=3
 }
+
+# unmount and remount FUSE sshfs
+function umntbox () {
+    umount ~/sandbox
+    mntbox;
+    cd ~/sandbox/sites;
+}
+
