@@ -1,0 +1,22 @@
+#!/bin/bash
+# by Matthew.Martelle@aofl.com
+if [ -n "$1" ]
+	then
+		compare_branch=$1
+	else
+		compare_branch="origin/master"
+fi
+current_repo=$(basename `git rev-parse --show-toplevel`)
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+echo -e "\ngathering data for JIRA comment..."
+count=$(git diff $compare_branch --name-only | wc -l)
+read file_count <<<"$count"
+file_names=$(git diff $compare_branch --name-only)
+if [ $file_count -ge 50 ]; then
+	files_changed=$file_count
+else
+	files_changed="\n${file_names}"
+fi
+clipboard_string="repo: ${current_repo}\n\nbranch: ${current_branch}\n\nfiles: ${files_changed}"
+echo -e "copied the following to the clipboard:\n"
+echo -e "${clipboard_string}" | tee >(pbcopy)
