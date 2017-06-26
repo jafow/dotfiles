@@ -52,8 +52,8 @@ alias vim-sandbox='vim scp://jared.fowler.test.abcmouse.com/ /home/jared.fowler/
 alias mntbox='sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=Sandbox'
 
 # aofljs build aliases
-alias bapp='node ~/Development/tools_backup/index.js --skip-sync build project -a'
-alias ball='node ~/Development/tools_backup/index.js --skip-sync build project'
+alias bapp='aofljs-cli build-app $1 -c config.json'
+alias ball='aofljs-cli build-app -c'
 
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
