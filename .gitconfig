@@ -11,6 +11,7 @@ editor = vim
 whitespace = trailing-space,tabwidth=2
 [push]
 default = simple
+followTags = true
 [alias]
 co = checkout
 ci = commit
@@ -31,8 +32,15 @@ pum=pull upstream master
 pom=pull origin master
 subup=submodule update
 diffm=diff --dirstat=files,cumulative --name-only HEAD master
+prune=fetch --prune
 [diff]
 	tool = vimdiff
+[transfer]
+  fsckobjects = true
+  # To combat repository corruption!
+  # Note: this global option applies during receive and transmit
+  # https://git-scm.com/docs/git-config#git-config-transferfsckObjects
+  # via https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
 [merge]
 	tool = vimdiff
 [mergetool]

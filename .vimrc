@@ -1,12 +1,11 @@
 execute pathogen#infect()
 " original syntax setting
-" syntax on
+syntax on
 " try slm syntax highlighting syntax setting
-syntax enable
-filetype off
+" syntax enable
 " try slm syntax highlighng filetyp setting
-filetype plugin indent on
-"set foldmethod=syntax"
+filetype plugin on
+set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -35,18 +34,19 @@ set nobackup             " disable backups"
 set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
+set rtp+=/usr/local/opt/fzf
 set spell
 set mouse=nicr
 setlocal spell spelllang=en_us
 set expandtab
 set nomodeline           " stops reading beginning and end lines of a file
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:. "mark whitespace"
+set listchars=trail:.,extends:#,nbsp:. "mark whitespace"
 set term=screen-256color
 
 " Leader Key to ","
-let mapleader=","
+" let mapleader=","
 
 " remappings
 inoremap jj <ESC>
@@ -259,16 +259,6 @@ augroup Snips
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
 augroup END
 
-" NERDTree show hidden files
-let NERDTreeShowHidden=1
-" Let NERDTree autoopen when vim is opened with no files
-
-" NERDTree Commenter Defaults
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
 augroup StartIt
   autocmd!
   autocmd BufNewFile,BufReadPost *.vimrc call TwoSpace()
@@ -283,38 +273,12 @@ augroup END
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Alias :UndotreeToggle to ent
-cnoreabbrev <expr> ents ((getcmdtype() is# ":" && getcmdline() is# "ents")?("UndotreeToggle"):("ents"))
-
-" Alias Helptags to rbHelp, This makes way more sense to me and will be
-" easier to remember
-cnoreabbrev <expr> rbHelp ((getcmdtype() is# ":" && getcmdline() is# "rbHelp")?("Helptags"):("rbHelp"))
-
 " Alias sudo overwrite
 cnoreabbrev <expr> sudowrite ((getcmdtype() is# ":" && getcmdline() is# "sudowrite")?(":w !sudo tee %"):("sudowrite"))
-
-" easymotion mappings
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotnion-t2)
-
-" easyMotion search
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" Search in line
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
 
 " Vim Airline
 set laststatus=2
 set ttimeoutlen=50
-" Auto Display all buffers
-"let g:airline_left_sep = '>'
-"let g:airline_right_sep = '<'
-" let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -367,28 +331,11 @@ command! DoubleQ %s/'/"/g
 
 " close tab
 command! Qt tabclose
-function! ConvertSpace()
-  set ts=4 sts=4 noet
-  retab!
-  set ts=2 sts=2 et
-  retab
-endfunction
-command! TabSpaceConvert call ConvertSpace()
-
-function! RotateWindowsFunc()
-  wincmd H
-endfunction
-command! RotateWindow call RotateWindowsFunc()
 
 " set scrollfix
 " Keeps cursor in middle of the screen always.
 let g:scrollfix=50
 let g:fixeof=0
-
-" ELM Bindings
-nnoremap <leader>el :ElmEvalLine<CR>
-vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
-nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Nginx
 au BufRead,BufNew *.nginx.conf set filetype=nginx

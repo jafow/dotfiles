@@ -51,3 +51,12 @@ function chrome() {
 function ro() {
     r.js -o $1 logLevel=3
 }
+
+# unmount and remount FUSE sshfs
+function umntbox () {
+    cd ~;
+    umount ~/sandbox;
+    sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=Sandbox
+    cd ~/sandbox/sites;
+}
+
