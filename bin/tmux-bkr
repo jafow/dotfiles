@@ -12,13 +12,13 @@ tmux send-keys "cd ~/Development/beaker" C-m
 tmux send-keys "npm run start" C-m
 
 # open dat
-tmux new-window -t abcp:2 -n "dat"
+tmux new-window -t beak:2 -n "dat"
 tmux select-pane -t 2
 tmux send-keys "cd ~/Development/dat-sound" C-m
 tmux send-keys "dat share" C-m
 
 # open bash
-tmux new-window -t abcp:3 -n "bash"
+tmux new-window -t beak:3 -n "bash"
 tmux select-pane -t 3
 
 tmux select-window -t 0
