@@ -4,11 +4,24 @@ filetype off
 set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
-set encoding=utf-8
+if !has('nvim')
+  set encoding=utf-8
+  set clipboard=unnamed    " allow copy to clipboard "
+  set autoindent           " always set autoindenting on
+  setlocal spell spelllang=en_us
+  set backspace=indent,eol,start " allow backspacing over everything in insert mode
+  set incsearch            " show search matches as you type"
+  set history=1000         " remember more commands and search history
+  set nocompatible         " dont care "
+  set mouse=nicr
+  set term=screen-256color
+  set wildignore=*.swp,*.bak,*.pyc,*.class
+  set hlsearch             " highlight search terms
+
+endif
+
 set ambiwidth = "single"
-set autoindent           " always set autoindenting on
 set copyindent           " copy the previous indentation on autoindenting
 set rnu                  " always show line numbers
 set number               " hybrid mode numbers
@@ -18,56 +31,16 @@ set shiftround           " use multiple of shiftwidth when indenting with "<" an
 set showmatch            " set show matching parenthesis
 set ignorecase           " ignore case when searching
 set smartcase            " ignore case if search pattern is all lowercase, case-sensitive otherwise set smarttab             " insert tabs on the start of a line according to shiftwidth, not tabstop
-set hlsearch             " highlight search terms
-set incsearch            " show search matches as you type"
-set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal"s title
 set noerrorbells         " don"t beep"
-set nocompatible         " dont care "
 set nobackup             " disable backups"
-set clipboard=unnamed    " allow copy to clipboard "
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
-set spell
-set mouse=nicr
-setlocal spell spelllang=en_us
+" set spell
 set expandtab
-set nomodeline           " stops reading beginning and end lines of a file
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:. "mark whitespace"
-set term=screen-256color
+set background=light
 
-" Leader Key to ","
-let mapleader=","
-
-" remappings
-inoremap jj <ESC>
-inoremap kk <ESC>
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
 
 " ,ev to edit vim, ,sv to source vim
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
