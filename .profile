@@ -15,7 +15,8 @@ fi
 
 
 export MAVEN="/usr/local/lib/apache-maven-3.3.9/bin"
-export PATH="~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$MAVEN"
+export RVM="~/.rvm/gems/ruby-2.3.0/bin"
+export PATH="~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$MAVEN:$RVM"
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export GOPATH="$HOME/work"

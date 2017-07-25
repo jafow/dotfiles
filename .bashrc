@@ -91,15 +91,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export NVM_DIR="/home/jared/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by travis gem
 [ -f /home/jared/.travis/travis.sh ] && source /home/jared/.travis/travis.sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin" # Add RVM to PATH for scripting
