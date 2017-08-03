@@ -21,6 +21,7 @@ if !has('nvim')
 
 endif
 
+set pastetoggle=<f10>
 set ambiwidth = "single"
 set copyindent           " copy the previous indentation on autoindenting
 set rnu                  " always show line numbers
