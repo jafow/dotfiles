@@ -53,7 +53,7 @@ alias mntbox='sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox 
 
 # aofljs build aliases
 alias bapp='aofljs-cli build-app $1 -c config.json'
-alias ball='aofljs-cli build-app -c'
+alias ball='aofljs-cli build-app -c config.json'
 
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
