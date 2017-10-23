@@ -129,20 +129,20 @@ endfunction
 
 " Set bar at max width in accordance with Google style guide
 " aka Closure linter
-function! ClosureIt()
-    " setlocal textwidth=80
-    setlocal colorcolumn=+1
-    " hi ColorColumn  ctermbg=246
-    " hi OverLength   ctermfg=125 ctermbg=250
-    " match OverLength /\%>80v.\+/
-endfunction
+" function! ClosureIt()
+"     " setlocal textwidth=80
+"     setlocal colorcolumn=+1
+"     " hi ColorColumn  ctermbg=246
+"     " hi OverLength   ctermfg=125 ctermbg=250
+"     " match OverLength /\%>80v.\+/
+" endfunction
 
-function! KS()
-    set listchars=tab:  ,trail:.,extends:#,nbsp:. "mark whitespace"
-    set noexpandtab
-    let g:syntastic_javascript_checkers = ['jsxhint', 'jscs']
-endfunction
-command! KS call KS()
+" function! KS()
+"     " set listchars=tab:  ,trail:.,extends:#,nbsp:. "mark whitespace"
+"     " set noexpandtab
+"     " let g:syntastic_javascript_checkers = ['jsxhint', 'jscs']
+" endfunction
+" command! KS call KS()
 
 " Ignore camelCase words when spell checking
 fun! IgnoreCamelCaseSpell()
