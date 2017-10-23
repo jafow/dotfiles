@@ -167,21 +167,20 @@ autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " Delete trailing white space on write
 func! DeleteTrailingWS()
-exe "normal mz"
-%s/\s\+$//ge
-exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
-" autocmd BufWrite * :call DeleteTrailingWS()
+autocmd BufWrite * :call DeleteTrailingWS()
 command! DeleteTrailing call DeleteTrailingWS()
 
-augroup JavscriptG
+augroup JavascriptG
   autocmd!
   autocmd BufRead *.js normal zR
-  autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.styl call TwoSpace()
-  autocmd BufNewFile,BufReadPost *.js,*.jsx call ClosureIt()
+  autocmd BufNewFile,BufReadPost *.js set foldmethod=indent
+  autocmd BufNewFile,BufReadPost *.js set foldlevel=2
+  autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.style call TwoSpace()
   autocmd BufNewFile,BufReadPost *.jsx let b:syntastic_checkers=['eslint']
-  autocmd BufNewFile,BufReadPost *.jshintrc set filetype=json
-  autocmd BufNewFile,BufReadPost *.jscsrc set filetype=json
   autocmd BufNewFile,BufReadPost *.eslintrc set filetype=json
   autocmd BufNewFile,BufReadPost *.json set filetype=json
   autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable "Auto collapse by indentation"
