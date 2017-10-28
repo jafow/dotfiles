@@ -1,3 +1,4 @@
+set nocp
 execute pathogen#infect()
 syntax on
 filetype off
@@ -5,21 +6,19 @@ set foldmethod=syntax"
 set nowrap               " don"t wrap lines
 set tabstop=4            " a tab is four spaces
 
-if !has('nvim')
-  set encoding=utf-8
-  set clipboard=unnamed    " allow copy to clipboard "
-  set autoindent           " always set autoindenting on
-  setlocal spell spelllang=en_us
-  set backspace=indent,eol,start " allow backspacing over everything in insert mode
-  set incsearch            " show search matches as you type"
-  set history=1000         " remember more commands and search history
-  set nocompatible         " dont care "
-  set mouse=nicr
-  set term=screen-256color
-  set wildignore=*.swp,*.bak,*.pyc,*.class
-  set hlsearch             " highlight search terms
-
-endif
+set clipboard=unnamed
+set encoding=utf-8
+" set clipboard=unnamed    " allow copy to clipboard "
+set autoindent           " always set autoindenting on
+setlocal spell spelllang=en_us
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set incsearch            " show search matches as you type"
+set history=1000         " remember more commands and search history
+set nocompatible         " dont care "
+set mouse=nicr
+set term=screen-256color
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set hlsearch             " highlight search terms
 
 set pastetoggle=<f10>
 set ambiwidth = "single"
@@ -38,14 +37,9 @@ set noerrorbells         " don"t beep"
 set nobackup             " disable backups"
 set noswapfile           " disable backups"
 set relativenumber       " show line nubmer relative to cursor
-" set spell
+set spell
 set expandtab
 set background=light
-
-
-" ,ev to edit vim, ,sv to source vim
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " map down and up to up next row and down next row
 nnoremap j gj
@@ -94,16 +88,11 @@ set grepprg=grep\ -nH\ $*
 " Support all colors
 se t_Co=16
 
-" Solarized Settings
+" colorscheme Settings
 set background=dark
-" This Sets Solarized theme values in VIM
-"let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
 
 "Set vim Colorscheme
-colorscheme solarized
+colorscheme lucius
 
 " Syntastic Settings
 let g:syntastic_mode_map={"mode": "active","active_filetypes": ["vim"],"passive_filetypes": []}"
@@ -192,19 +181,6 @@ augroup JavscriptG
   autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable "Auto collapse by indentation"
 augroup END
 
-" Parentheses colours using Solarized
-let g:rbpt_colorpairs = [
-  \ [ '13', '#6c71c4'],
-  \ [ '5',  '#d33682'],
-  \ [ '1',  '#dc322f'],
-  \ [ '9',  '#cb4b16'],
-  \ [ '3',  '#b58900'],
-  \ [ '2',  '#859900'],
-  \ [ '6',  '#2aa198'],
-  \ [ '4',  '#268bd2'],
-  \ ]
-
-
 "folding is disabled by default but can be quickly toggled per-file by hitting zi"
 augroup XmlG
   autocmd!
@@ -219,16 +195,6 @@ augroup Snips
   autocmd BufNewFile,BufReadPost *.snippets setlocal noet ci pi sts=0 sw=4 ts=4 listchars-=tab:>. listchars=tab:\|\ "
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
 augroup END
-
-" NERDTree show hidden files
-let NERDTreeShowHidden=1
-" Let NERDTree autoopen when vim is opened with no files
-
-" NERDTree Commenter Defaults
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
 
 augroup StartIt
   autocmd!
@@ -251,43 +217,6 @@ let g:airline#extensions#syntastic#enabled = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-let g:airline#extensions#tmuxline#enabled = 0
-" let g:tmuxline_powerline_separators=0
-
-let g:tmuxline_preset={
-    \ 'a': '#S',
-    \ 'b': '#W',
-    \ 'c': '#H',
-    \ 'win': '#I #W',
-    \ 'cwin': '#I #W',
-    \ 'x': '%a',
-    \ 'y': '#W %R',
-    \ 'z': '#H',
-    \ 'options':{'status-justify' : 'left'}}
-
-let g:tmuxline_separators = {
-    \ 'left' : '▶',
-    \ 'left_alt': '>',
-    \ 'right' : '◀',
-    \ 'right_alt' : '<',
-    \ 'space' : ' '}
-" tmux clipboard workaround
-set clipboard=unnamed
 
 " JSON Syntax settings
 let g:vim_json_syntax_concealcursor=""
