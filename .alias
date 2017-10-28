@@ -66,4 +66,4 @@ do
 done
 
 # build & run beaker to a bg process
-alias beaker"cd ~/Development/beaker && npm run start > /dev/null &"
+alias beaker="cd ~/Development/beaker && npm run start > /dev/null &"
