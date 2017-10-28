@@ -196,6 +196,9 @@ augroup END
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Ale use eslint only for *.js files
+let g:ale_linters = {'javascript': ['eslint']}
+
 " JSON Syntax settings
 let g:vim_json_syntax_concealcursor=""
 let g:indentLine_noConcealCursor=""
