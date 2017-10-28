@@ -94,19 +94,6 @@ set background=dark
 "Set vim Colorscheme
 colorscheme lucius
 
-" Syntastic Settings
-let g:syntastic_mode_map={"mode": "active","active_filetypes": ["vim"],"passive_filetypes": []}"
-let g:syntastic_check_on_open = 1 " Checks file when loaded into buffer
-let g:syntastic_error_symbol="✗"
-let g:syntastic_warning_symbol="W"
-let g:jshint_highlight_color ="Red"
-let g:syntastic_html_checkers = ['tidy']
-let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]"]
-let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
-let b:syntastic_javascript_eslint_exec = system('npm-which eslint')
-
 " UltiSnips!
 let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
 
@@ -173,7 +160,6 @@ augroup JavscriptG
   autocmd BufRead *.js normal zR
   autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.styl call TwoSpace()
   autocmd BufNewFile,BufReadPost *.js,*.jsx call ClosureIt()
-  autocmd BufNewFile,BufReadPost *.jsx let b:syntastic_checkers=['eslint']
   autocmd BufNewFile,BufReadPost *.jshintrc set filetype=json
   autocmd BufNewFile,BufReadPost *.jscsrc set filetype=json
   autocmd BufNewFile,BufReadPost *.eslintrc set filetype=json
