@@ -226,3 +226,8 @@ au BufRead,BufNew *.nginx.conf set filetype=nginx
 if &diff
     colorscheme apprentice
 endif
+
+" vim 8.0 load all packages in ~/.vim/pack/git-plugins
+packloadall
+" generate helptags
+silent! helptags ALL
