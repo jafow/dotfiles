@@ -210,14 +210,6 @@ augroup END
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Vim Airline
-set laststatus=2
-set ttimeoutlen=50
-let g:airline#extensions#syntastic#enabled = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
 " JSON Syntax settings
 let g:vim_json_syntax_concealcursor=""
 let g:indentLine_noConcealCursor=""
