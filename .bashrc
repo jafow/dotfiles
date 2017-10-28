@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+# source rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -96,5 +98,3 @@ export NVM_DIR="/home/jared/.nvm"
 
 # added by travis gem
 [ -f /home/jared/.travis/travis.sh ] && source /home/jared/.travis/travis.sh
-
-export PATH="$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin" # Add RVM to PATH for scripting
