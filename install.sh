@@ -24,10 +24,15 @@ ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/bin" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
 ln -sfv "$DOTFILES_DIR/.vim" ~
+ln -sfv "$DOTFILES_DIR/.fzf.bash" ~
 
 # Package managers & packages
 
-. "$DOTFILES_DIR/npm.sh"
+# nvm/nodejs/npm
+source "$DOTFILES_DIR/npm.sh"
+
+# fzf
+source "$DOTFILES_DIR/fzf.sh"
 
 if [ "$(uname)" == "Darwin" ]; then
     . "$DOTFILES_DIR/install/brew-cask.sh"

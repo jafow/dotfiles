@@ -41,3 +41,5 @@ export NVM_DIR="$HOME/.nvm"
 # source git-completion
 source "$DOTFILES_DIR/dotfiles/.git-completion.bash"
 
+# source fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
