@@ -145,7 +145,6 @@ augroup JavscriptG
   autocmd!
   autocmd BufRead *.js normal zR
   autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.styl call TwoSpace()
-  autocmd BufNewFile,BufReadPost *.js,*.jsx call ClosureIt()
   autocmd BufNewFile,BufReadPost *.jshintrc set filetype=json
   autocmd BufNewFile,BufReadPost *.jscsrc set filetype=json
   autocmd BufNewFile,BufReadPost *.eslintrc set filetype=json
