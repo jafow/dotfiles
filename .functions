@@ -69,3 +69,8 @@ function xtoggletouchpad() {
 }
 # the awk command from here:
 # http://unix.stackexchange.com/questions/258456/using-xinput-to-get-device-state
+
+# captain's log
+function logbook() {
+    vim ~/logbook/`date %Y-%m-%d`.md
+}
