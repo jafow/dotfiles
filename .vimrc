@@ -95,7 +95,7 @@ set background=dark
 colorscheme lucius
 
 " UltiSnips!
-let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
+let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/.vim/bundle/snippets/'
 
 " Overwrite Netrw default cwd to track to dir current open dir
 let g:netrw_keepdir=0
