@@ -8,7 +8,6 @@ set tabstop=4            " a tab is four spaces
 
 set clipboard=unnamed
 set encoding=utf-8
-" set clipboard=unnamed    " allow copy to clipboard "
 set autoindent           " always set autoindenting on
 setlocal spell spelllang=en_us
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -41,6 +40,13 @@ set spell
 set expandtab
 set background=light
 
+" leader
+let mapleader="s"
+" status line fun
+set statusline+=\ buffer%n      "buffer Number
+set statusline+=\ %m     "modified flag
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%=%-16(\ %l,%c-%v\ %)%P
+
 " map down and up to up next row and down next row
 nnoremap j gj
 nnoremap k gk
@@ -61,9 +67,6 @@ nnoremap tn :tabnew<CR>:NERDTree<CR>
 nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
-" remap ; to ; to save a button press
-" nnoremap ; :
-
 " show buffer list and navigate to one
 nnoremap ,b :ls<CR>:buffer<Space>
 
@@ -77,13 +80,6 @@ filetype plugin on
 
 "Turns on automatic indent from plugins
 filetype indent on
-" Change defualt tex output to PDF
-let g:Tex_DefaultTargetFormat="pdf"
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-let g:Tex_ViewRule_pdf="preview"
-set grepprg=grep\ -nH\ $*
 
 " Support all colors
 se t_Co=16
@@ -106,16 +102,6 @@ function! TwoSpace()
   setlocal tabstop=2
   setlocal sts=2
   setlocal expandtab
-endfunction
-
-" Set bar at max width in accordance with Google style guide
-" aka Closure linter
-function! ClosureIt()
-    " setlocal textwidth=80
-    setlocal colorcolumn=+1
-    " hi ColorColumn  ctermbg=246
-    " hi OverLength   ctermfg=125 ctermbg=250
-    " match OverLength /\%>80v.\+/
 endfunction
 
 function! KS()
