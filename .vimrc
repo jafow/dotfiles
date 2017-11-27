@@ -1,122 +1,78 @@
 execute pathogen#infect()
-" original syntax setting
 syntax on
-" try slm syntax highlighting syntax setting
-" syntax enable
-" try slm syntax highlighng filetyp setting
-filetype plugin on
-set foldmethod=syntax"
-set nowrap               " don"t wrap lines
-set tabstop=4            " a tab is four spaces
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
+if !has('nvim')
+	filetype plugin on
+	set foldmethod=syntax    "
+	set nowrap               " don"t wrap lines
+	set tabstop=4            " a tab is four spaces
+	set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
-set encoding=utf-8
-set ambiwidth = "single"
-set autoindent           " always set autoindenting on
-set copyindent           " copy the previous indentation on autoindenting
-set rnu                  " always show line numbers
-set number               " hybrid mode numbers
-set synmaxcol=512        " prevent long lines from hanging vim
-set shiftwidth=4         " number of spaces to use for autoindenting
-set shiftround           " use multiple of shiftwidth when indenting with "<" and ">""
-set showmatch            " set show matching parenthesis
-set ignorecase           " ignore case when searching
-set smartcase            " ignore case if search pattern is all lowercase, case-sensitive otherwise set smarttab             " insert tabs on the start of a line according to shiftwidth, not tabstop
-set hlsearch             " highlight search terms
-set incsearch            " show search matches as you type"
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
-set title                " change the terminal"s title
-set noerrorbells         " don"t beep"
-set nocompatible         " dont care "
-set nobackup             " disable backups"
-set clipboard=unnamed    " allow copy to clipboard "
-set noswapfile           " disable backups"
-set relativenumber       " show line nubmer relative to cursor
-" set runtimepath^=~/.vim/bundle/ctrlp.vim
-set rtp+=/usr/local/opt/fzf
-set spell
-set mouse=nicr
-setlocal spell spelllang=en_us
-set expandtab
-set nomodeline           " stops reading beginning and end lines of a file
-set list
-set listchars=trail:.,extends:#,nbsp:. "mark whitespace"
-set term=screen-256color
+	set encoding=utf-8
+	set ambiwidth = "single"
+	set autoindent           " always set autoindenting on
+	set copyindent           " copy the previous indentation on autoindenting
+	set rnu                  " always show line numbers
+	set number               " hybrid mode numbers
+	set synmaxcol=512        " prevent long lines from hanging vim
+	set shiftwidth=4         " number of spaces to use for autoindenting
+	set shiftround           " use multiple of shiftwidth when indenting with "<" and ">""
+	set showmatch            " set show matching parenthesis
+	set ignorecase           " ignore case when searching
+	set smartcase            " ignore case if search pattern is all lowercase, case-sensitive otherwise set smarttab             " insert tabs on the start of a line according to shiftwidth, not tabstop
+	set hlsearch             " highlight search terms
+	set incsearch            " show search matches as you type"
+	set history=1000         " remember more commands and search history
+	set undolevels=1000      " use many muchos levels of undo
+	set wildignore=*.swp,*.bak,*.pyc,*.class
+	set title                " change the terminal"s title
+	set noerrorbells         " don"t beep"
+	set nocompatible         " dont care "
+	set nobackup             " disable backups"
+	set clipboard=unnamed    " allow copy to clipboard "
+	set noswapfile           " disable backups"
+	set relativenumber       " show line nubmer relative to cursor
+	" set runtimepath^=~/.vim/bundle/ctrlp.vim
+	set rtp+=/usr/local/opt/fzf
+	set spell
+	set mouse=nicr
+	setlocal spell spelllang=en_us
+	set expandtab
+	set nomodeline           " stops reading beginning and end lines of a file
+	set list
+	set listchars=trail:.,extends:#,nbsp:. "mark whitespace"
+	" set term=screen-256color
+endif
 
-" Leader Key to ","
-" let mapleader=","
+" status line fun
+" set statusline=%F       "tail of the filename
 
+" " set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+" " set statusline+=%{&ff}] "file format
+
+" set statusline+=\ buffer%n      "buffer Number
+" set statusline+=\ %m     "modified flag
+" set statusline+=\ %l/%L   "cursor line/total lines
+
+" set statusline+=\ %P    "percent through file
+" set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 " remappings
 inoremap jj <ESC>
 inoremap kk <ESC>
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
-
-" ,ev to edit vim, ,sv to source vim
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " map down and up to up next row and down next row
 nnoremap j gj
 nnoremap k gk
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Easy Tab navigation
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
-nnoremap tt :tabedit<Space>
-nnoremap tn :tabnew<CR>:NERDTree<CR>
-nnoremap tm :tabm<Space>
-nnoremap td :tabclose<CR>
-
-" make Q save and quite
-" nnoremap <silent> Q ZZ
-
-" remap ; to ; to save a button press
-" nnoremap ; :
-
 " show buffer list and navigate to one
-nnoremap ,b :ls<CR>:buffer<Space>
+nnoremap \b :ls<CR>:buffer<Space>
 
 " vertical resize
-nnoremap ,vz :vertical<Space>resize<Space>
+nnoremap \vz :vertical<Space>resize<Space>
 " Change snipmate trigger to ,Tab
 " Makes it compatible with tab completion
 imap <leader><tab> <Plug>snipMateNextOrTrigger
 smap <leader><tab> <Plug>snipMateNextOrTrigger
-
-" Turns on plugins
-filetype plugin on
 
 "Turns on automatic indent from plugins
 filetype indent on
@@ -173,20 +129,20 @@ endfunction
 
 " Set bar at max width in accordance with Google style guide
 " aka Closure linter
-function! ClosureIt()
-    " setlocal textwidth=80
-    setlocal colorcolumn=+1
-    " hi ColorColumn  ctermbg=246
-    " hi OverLength   ctermfg=125 ctermbg=250
-    " match OverLength /\%>80v.\+/
-endfunction
+" function! ClosureIt()
+"     " setlocal textwidth=80
+"     setlocal colorcolumn=+1
+"     " hi ColorColumn  ctermbg=246
+"     " hi OverLength   ctermfg=125 ctermbg=250
+"     " match OverLength /\%>80v.\+/
+" endfunction
 
-function! KS()
-    set listchars=tab:  ,trail:.,extends:#,nbsp:. "mark whitespace"
-    set noexpandtab
-    let g:syntastic_javascript_checkers = ['jsxhint', 'jscs']
-endfunction
-command! KS call KS()
+" function! KS()
+"     " set listchars=tab:  ,trail:.,extends:#,nbsp:. "mark whitespace"
+"     " set noexpandtab
+"     " let g:syntastic_javascript_checkers = ['jsxhint', 'jscs']
+" endfunction
+" command! KS call KS()
 
 " Ignore camelCase words when spell checking
 fun! IgnoreCamelCaseSpell()
@@ -211,21 +167,20 @@ autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " Delete trailing white space on write
 func! DeleteTrailingWS()
-exe "normal mz"
-%s/\s\+$//ge
-exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
-" autocmd BufWrite * :call DeleteTrailingWS()
+autocmd BufWrite * :call DeleteTrailingWS()
 command! DeleteTrailing call DeleteTrailingWS()
 
-augroup JavscriptG
+augroup JavascriptG
   autocmd!
   autocmd BufRead *.js normal zR
-  autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.styl call TwoSpace()
-  autocmd BufNewFile,BufReadPost *.js,*.jsx call ClosureIt()
+  autocmd BufNewFile,BufReadPost *.js set foldmethod=indent
+  autocmd BufNewFile,BufReadPost *.js set foldlevel=2
+  autocmd BufNewFile,BufReadPost *.js,*.jsx,*.jade,*.coffee,*.json,*.scss,*.sass,*.style call TwoSpace()
   autocmd BufNewFile,BufReadPost *.jsx let b:syntastic_checkers=['eslint']
-  autocmd BufNewFile,BufReadPost *.jshintrc set filetype=json
-  autocmd BufNewFile,BufReadPost *.jscsrc set filetype=json
   autocmd BufNewFile,BufReadPost *.eslintrc set filetype=json
   autocmd BufNewFile,BufReadPost *.json set filetype=json
   autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable "Auto collapse by indentation"
@@ -276,48 +231,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Alias sudo overwrite
 cnoreabbrev <expr> sudowrite ((getcmdtype() is# ":" && getcmdline() is# "sudowrite")?(":w !sudo tee %"):("sudowrite"))
 
-" Vim Airline
-set laststatus=2
-set ttimeoutlen=50
-let g:airline#extensions#syntastic#enabled = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_powerline_separators=0
-
-let g:tmuxline_preset={
-    \ 'a': '#S',
-    \ 'b': '#W',
-    \ 'c': '#H',
-    \ 'win': '#I #W',
-    \ 'cwin': '#I #W',
-    \ 'x': '%a',
-    \ 'y': '#W %R',
-    \ 'z': '#H',
-    \ 'options':{'status-justify' : 'left'}}
-
-let g:tmuxline_separators = {
-    \ 'left' : '▶',
-    \ 'left_alt': '>',
-    \ 'right' : '◀',
-    \ 'right_alt' : '<',
-    \ 'space' : ' '}
 " tmux clipboard workaround
 set clipboard=unnamed
 
@@ -329,16 +242,10 @@ let g:indentLine_noConcealCursor=""
 command! SingleQ %s/"/'/g
 command! DoubleQ %s/'/"/g
 
-" close tab
-command! Qt tabclose
-
 " set scrollfix
 " Keeps cursor in middle of the screen always.
 let g:scrollfix=50
 let g:fixeof=0
-
-" Nginx
-au BufRead,BufNew *.nginx.conf set filetype=nginx
 
 " avoid ugly default difftool colorscheme
 if &diff

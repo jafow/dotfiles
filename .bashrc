@@ -103,3 +103,5 @@ export NVM_DIR="/home/jared/.nvm"
 [ -f /home/jared/.travis/travis.sh ] && source /home/jared/.travis/travis.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

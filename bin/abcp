@@ -3,13 +3,12 @@ tmux new -s abcp -d -n "vim"
 
 tmux send-keys "cd $(pwd); vim" C-m
 tmux send-keys ":e." C-m
-tmux send-keys ":vsp" C-m
 
 # open local
 tmux new-window -t abcp:1 -n "local"
 tmux select-pane -t 1
-tmux send-keys "cd ~/Development/parent.abcmouse.com" C-m
-tmux split-window
+tmux send-keys "dev" C-m
+tmux split-window -h
 
 # open sandbox
 tmux new-window -t abcp:2 -n "box"
@@ -22,6 +21,11 @@ tmux new-window -t abcp:3 -n "sshfs"
 tmux select-pane -t 3
 tmux send-keys "umount ~/sandbox" C-m
 tmux send-keys "mntbox; cd ~/sandbox/sites" C-m
+
+# account creation
+tmux new-window -t abcp:4 -n "acct-auto"
+tmux select-pane -t 4
+tmux send-keys "cd ~/Desktop/account_generator_v1.2/account-automation" C-m
 
 tmux select-window -t 0
 tmux attach -t abcp
