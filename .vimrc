@@ -114,7 +114,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_jscs_args = '--esprima=esprima-fb --esnext'
 
 " UltiSnips!
-let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/bundle/my-snips/'
+let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/.vim/bundle/snippets/'
 
 " Overwrite Netrw default cwd to track to dir current open dir
 let g:netrw_keepdir=0
