@@ -66,3 +66,7 @@ function chop_branch () {
     git push origin $b --delete;
     git br -D $b;
 }
+# captain's log
+function logbook() {
+    vim ~/logbook/`date +%Y-%m-%d`.md
+}
