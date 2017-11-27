@@ -51,8 +51,7 @@ esac
 #    color_prompt=yes
 #    fi
 #fi
-
-
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 # unset color_prompt force_color_prompt
 # Make TERM only available outside of tmux
