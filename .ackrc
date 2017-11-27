@@ -7,7 +7,8 @@
 # Use "less -r" as my pager
 --pager=less -r
 
-# Ignore .map files
+# Ignore .map, .min files
 --ignore-file=ext:map
 --ignore-file=ext:map.js
 --ignore-file=ext:min.js
+--ignore-file=ext:min
