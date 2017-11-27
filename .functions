@@ -60,3 +60,9 @@ function umntbox () {
     cd ~/sandbox/sites;
 }
 
+# clean git branches
+function chop_branch () {
+    b=$1
+    git push origin $b --delete;
+    git br -D $b;
+}
