@@ -75,6 +75,10 @@ nnoremap ,b :ls<CR>:buffer<Space>
 imap <leader><tab> <Plug>snipMateNextOrTrigger
 smap <leader><tab> <Plug>snipMateNextOrTrigger
 
+" abbreviate common typos
+iabbrev thsi this
+iabbrev poupup popup
+
 " Turns on plugins
 filetype plugin on
 
