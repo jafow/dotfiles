@@ -20,7 +20,7 @@ PYTHON3="/usr/bin/python3"
 PIP3="/usr/local/lib/pip3"
 export RVM="~/.rvm/gems/ruby-2.3.0/bin"
 export RVM_BIN="~/.rvm/bin"
-export PATH="$RVM_BIN:$RVM:~/.gem:~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$PYTHON3:$PIP3"
+export PATH="$RVM_BIN:$RVM:~/.gem:~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$PYTHON3:$PIP3"
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export GOPATH="$HOME/work"
@@ -35,3 +35,5 @@ export MYMACHINENAME="goodcomputer"
 
 #my machine color
 export MYMACHINECOLOR="033;01;34m"
+
+export PATH="$HOME/.cargo/bin:$PATH"
