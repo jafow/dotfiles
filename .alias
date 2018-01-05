@@ -40,11 +40,11 @@ alias tat='tmux attach -t $1'
 alias cdl='cd $1;ls'
 
 # alias vim as macvim on osx
-if [ "$(uname -s)" == "Darwin" ]; then
-    alias vim="mvim -v";
-elif [ "$(uname -s)" = "Linux" ]; then
-    alias vim="vim"
-fi;
+# if [ "$(uname -s)" == "Darwin" ]; then
+#     alias vim="mvim -v";
+# elif [ "$(uname -s)" = "Linux" ]; then
+#     alias vim="vim"
+# fi;
 
 # sandbox aliases
 alias sandbox='ssh jared.fowler.test.abcmouse.com'
@@ -52,7 +52,8 @@ alias vim-sandbox='vim scp://jared.fowler.test.abcmouse.com/ /home/jared.fowler/
 alias mntbox='sshfs jared.fowler.test.abcmouse.com:/home/jared.fowler ~/sandbox -oauto_cache,reconnect,defer_permissions,negative_vncache,noappledouble,volname=Sandbox'
 
 # aofljs build aliases
-alias bapp='aofljs-cli build-app $1 -c config.json'
+# alias bapp='aofljs-cli build-app $1 -c config.json'
+alias bapp='node ~/Development/aofljs-cli/bin/aofljs-cli.js build-app $1 -c config.json'
 alias ball='aofljs-cli build-app -c config.json'
 
 # copy pwd to xsel or pbcopy based on OS
