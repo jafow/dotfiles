@@ -87,19 +87,9 @@ set grepprg=grep\ -nH\ $*
 " Support all colors
 se t_Co=16
 
-" Solarized Settings
-set background=dark
-" This Sets Solarized theme values in VIM
-"let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-
 "Set vim Colorscheme
-colorscheme solarized
-
-" Toggle Solarized background
-" call togglebg#map("<F5>")
+colorscheme lucius
+set background=dark
 
 " Syntastic Settings
 let g:syntastic_mode_map={"mode": "active","active_filetypes": ["vim"],"passive_filetypes": []}"
@@ -185,19 +175,6 @@ augroup JavascriptG
   autocmd BufNewFile,BufReadPost *.json set filetype=json
   autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable "Auto collapse by indentation"
 augroup END
-
-" Parentheses colours using Solarized
-let g:rbpt_colorpairs = [
-  \ [ '13', '#6c71c4'],
-  \ [ '5',  '#d33682'],
-  \ [ '1',  '#dc322f'],
-  \ [ '9',  '#cb4b16'],
-  \ [ '3',  '#b58900'],
-  \ [ '2',  '#859900'],
-  \ [ '6',  '#2aa198'],
-  \ [ '4',  '#268bd2'],
-  \ ]
-
 
 "folding is disabled by default but can be quickly toggled per-file by hitting zi"
 augroup XmlG

@@ -10,9 +10,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = .vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -40,3 +37,6 @@
 [submodule ".vim/bundle/syntastic-local-eslint.vim"]
 	path = .vim/bundle/syntastic-local-eslint.vim
 	url = https://github.com/mtscout6/syntastic-local-eslint.vim.git
+[submodule ".vim/bundle/vim-lucius"]
+	path = .vim/bundle/vim-lucius
+	url = https://github.com/jonathanfilip/vim-lucius.git
