@@ -1,47 +1,45 @@
 execute pathogen#infect()
 syntax on
-if !has('nvim')
-	filetype plugin on
-	set foldmethod=syntax    "
-	set nowrap               " don"t wrap lines
-	set tabstop=4            " a tab is four spaces
-	set backspace=indent,eol,start " allow backspacing over everything in insert mode
+filetype plugin on
+set foldmethod=syntax    "
+set nowrap               " don"t wrap lines
+set tabstop=4            " a tab is four spaces
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
-	set encoding=utf-8
-	set ambiwidth = "single"
-	set autoindent           " always set autoindenting on
-	set copyindent           " copy the previous indentation on autoindenting
-	set rnu                  " always show line numbers
-	set number               " hybrid mode numbers
-	set synmaxcol=512        " prevent long lines from hanging vim
-	set shiftwidth=4         " number of spaces to use for autoindenting
-	set shiftround           " use multiple of shiftwidth when indenting with "<" and ">""
-	set showmatch            " set show matching parenthesis
-	set ignorecase           " ignore case when searching
-	set smartcase            " ignore case if search pattern is all lowercase, case-sensitive otherwise set smarttab             " insert tabs on the start of a line according to shiftwidth, not tabstop
-	set hlsearch             " highlight search terms
-	set incsearch            " show search matches as you type"
-	set history=1000         " remember more commands and search history
-	set undolevels=1000      " use many muchos levels of undo
-	set wildignore=*.swp,*.bak,*.pyc,*.class
-	set title                " change the terminal"s title
-	set noerrorbells         " don"t beep"
-	set nocompatible         " dont care "
-	set nobackup             " disable backups"
-	set clipboard=unnamed    " allow copy to clipboard "
-	set noswapfile           " disable backups"
-	set relativenumber       " show line nubmer relative to cursor
-	" set runtimepath^=~/.vim/bundle/ctrlp.vim
-	set rtp+=/usr/local/opt/fzf
-	set spell
-	set mouse=nicr
-	setlocal spell spelllang=en_us
-	set expandtab
-	set nomodeline           " stops reading beginning and end lines of a file
-	set list
-	set listchars=trail:.,extends:#,nbsp:. "mark whitespace"
-	" set term=screen-256color
-endif
+set encoding=utf-8
+set ambiwidth = "single"
+set autoindent           " always set autoindenting on
+set copyindent           " copy the previous indentation on autoindenting
+set rnu                  " always show line numbers
+set number               " hybrid mode numbers
+set synmaxcol=512        " prevent long lines from hanging vim
+set shiftwidth=4         " number of spaces to use for autoindenting
+set shiftround           " use multiple of shiftwidth when indenting with "<" and ">""
+set showmatch            " set show matching parenthesis
+set ignorecase           " ignore case when searching
+set smartcase            " ignore case if search pattern is all lowercase, case-sensitive otherwise set smarttab             " insert tabs on the start of a line according to shiftwidth, not tabstop
+set hlsearch             " highlight search terms
+set incsearch            " show search matches as you type"
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal"s title
+set noerrorbells         " don"t beep"
+set nocompatible         " dont care "
+set nobackup             " disable backups"
+set clipboard=unnamed    " allow copy to clipboard "
+set noswapfile           " disable backups"
+set relativenumber       " show line nubmer relative to cursor
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
+set rtp+=/usr/local/opt/fzf
+set spell
+set mouse=nicr
+setlocal spell spelllang=en_us
+set expandtab
+set nomodeline           " stops reading beginning and end lines of a file
+set list
+set listchars=trail:.,extends:#,nbsp:. "mark whitespace"
+" set term=screen-256color
 
 " status line fun
 " set statusline=%F       "tail of the filename
@@ -109,6 +107,7 @@ let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/.vim/bundle/snippets/'
 " Overwrite Netrw default cwd to track to dir current open dir
 let g:netrw_keepdir=0
 
+
 " Set tabs to two spaces
 function! TwoSpace()
   setlocal shiftwidth=2
@@ -116,23 +115,6 @@ function! TwoSpace()
   setlocal sts=2
   setlocal expandtab
 endfunction
-
-" Set bar at max width in accordance with Google style guide
-" aka Closure linter
-" function! ClosureIt()
-"     " setlocal textwidth=80
-"     setlocal colorcolumn=+1
-"     " hi ColorColumn  ctermbg=246
-"     " hi OverLength   ctermfg=125 ctermbg=250
-"     " match OverLength /\%>80v.\+/
-" endfunction
-
-" function! KS()
-"     " set listchars=tab:  ,trail:.,extends:#,nbsp:. "mark whitespace"
-"     " set noexpandtab
-"     " let g:syntastic_javascript_checkers = ['jsxhint', 'jscs']
-" endfunction
-" command! KS call KS()
 
 " Ignore camelCase words when spell checking
 fun! IgnoreCamelCaseSpell()
@@ -205,6 +187,15 @@ augroup END
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Ale use eslint only for *.js files
+let g:ale_linters = {'javascript': ['eslint']}
+
+" Netrw remote write bug workaround: https://github.com/vim/vim/issues/2329
+" autocmd BufRead,BufWrite scp://* :set bt=acwrite
+
+" git grep on the word under the cursor
+" nmap <leader>g "zyiw :Ggrep  "'. @z .'"  --' "'./*'" "':!*min*'" <CR>
+
 " Alias sudo overwrite
 cnoreabbrev <expr> sudowrite ((getcmdtype() is# ":" && getcmdline() is# "sudowrite")?(":w !sudo tee %"):("sudowrite"))
 
@@ -228,3 +219,6 @@ let g:fixeof=0
 if &diff
     colorscheme apprentice
 endif
+
+packloadall
+silent! helptags ALL

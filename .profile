@@ -15,7 +15,7 @@ fi
 
 
 
-export PATH="~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/dotnet/:/usr/bin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin"
+export PATH="~/.npm-global/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/dotnet/:/usr/bin:/sbin/:/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:/usr/local/apache2/bin"
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export GOPATH="$HOME/work"
