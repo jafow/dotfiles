@@ -28,7 +28,7 @@ alias treed="tree -d"
 
 alias xi='exit'
 
-alias dev="cd ~/Development"
+alias dev="cd ~/projects"
 
 # tmux defaults to tmux -2 for full color support
 alias tmux='tmux -2'
