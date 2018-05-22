@@ -99,6 +99,7 @@ let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/.vim/bundle/snippets/'
 
 " Overwrite Netrw default cwd to track to dir current open dir
 let g:netrw_keepdir=0
+let g:netrw_banner=0
 
 " Set tabs to two spaces
 function! TwoSpace()
