@@ -38,13 +38,6 @@ alias tat='tmux attach -t $1'
 # cd & ls a directory
 alias cdl='cd $1;ls'
 
-# alias vim as macvim on osx
-if [ "$(uname -s)" == "Darwin" ]; then
-    alias vim="mvim -v";
-elif [ "$(uname -s)" = "Linux" ]; then
-    alias vim="vim"
-fi;
-
 # copy pwd to xsel or pbcopy based on OS
 if [ "$(uname -s)" == "Linux" ]; then
   alias cpwd='pwd|tr -d "\n"|xsel --clipboard --input'
