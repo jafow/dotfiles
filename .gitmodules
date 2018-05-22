@@ -16,8 +16,8 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-vinegar"]
-	path = .vim/bundle/vim-vinegar
+[submodule ".vim/pack/git-plugins/start/vim-vinegar"]
+	path = .vim/pack/git-plugins/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
