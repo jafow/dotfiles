@@ -19,11 +19,13 @@ export GPG_TTY
 
 PYTHON3="/usr/bin/python3"
 PIP3="/usr/local/lib/pip3"
+PYENV_ROOT="$HOME/.pyenv"
 RACKET="~/racket/bin"
 CARGO="~/.cargo/bin"
+USER_BASE_PATH="$HOME/.local"
 export RVM="~/.rvm/gems/ruby-2.3.0/bin"
 export RVM_BIN="~/.rvm/bin"
-export PATH="$RVM_BIN:$RVM:~/.gem:~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$PYTHON3:$PIP3:$RACKET:$CARGO"
+export PATH="$USER_BASE_PATH:$RVM_BIN:$RVM:~/.gem:~/.npm-global/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin/:/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$PYENV_ROOT/bin:$PYTHON3:$PIP3:$RACKET:$CARGO"
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export GOPATH="$HOME/go"
