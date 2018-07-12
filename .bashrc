@@ -100,3 +100,10 @@ export NVM_DIR="/home/jared/.nvm"
 [ -f /home/jared/.travis/travis.sh ] && source /home/jared/.travis/travis.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/jaredfowler/.nvm/versions/node/v6.14.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/jaredfowler/.nvm/versions/node/v6.14.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/jaredfowler/.nvm/versions/node/v6.14.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/jaredfowler/.nvm/versions/node/v6.14.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash

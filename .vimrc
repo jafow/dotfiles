@@ -40,6 +40,7 @@ set spell
 set expandtab
 set background=light
 
+set tags=./tags,tags;$HOME " look for tags file in cwd, up to $HOME
 " leader
 let mapleader="s"
 " status line fun
