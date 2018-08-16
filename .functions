@@ -74,3 +74,15 @@ function xtoggletouchpad() {
 function logbook() {
     vim ~/logbook/`date +%Y-%m-%d`.md
 }
+
+# random password to clipboard
+function randpw() {
+    N=$1
+    for ((i=0; i<=$N;i++));
+        do
+            printf "%s\n" `passwordgenerator -e 2 -s` >> /tmp/pw.txt;
+        done
+
+    cat /tmp/pw.txt | pbcopy
+    rm /tmp/pw.txt
+}
