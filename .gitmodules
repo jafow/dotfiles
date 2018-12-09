@@ -34,3 +34,9 @@
 [submodule ".vim/bundle/vim-lucius"]
 	path = .vim/bundle/vim-lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
+[submodule ".vim/pack/git-plugins/start/vim-vue"]
+	path = .vim/pack/git-plugins/start/vim-vue
+	url = https://github.com/posva/vim-vue.git
+[submodule ".vim/pack/git-plugins/start/fzf.vim"]
+	path = .vim/pack/git-plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
