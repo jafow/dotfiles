@@ -43,3 +43,5 @@ source "$DOTFILES_DIR/dotfiles/.git-completion.bash"
 
 # source fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/.bashrc ] && source ~/.bashrc
