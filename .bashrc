@@ -93,8 +93,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="/home/jared/.nvm"
+# nvm
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# added by travis gem
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+
+ #added by travis gem
 [ -f /home/jared/.travis/travis.sh ] && source /home/jared/.travis/travis.sh
+
+export GPG_TTY=$(tty)
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
