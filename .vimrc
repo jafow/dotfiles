@@ -40,6 +40,9 @@ set spell
 set expandtab
 set background=light
 
+" add fzf to runtimepath
+set rtp+=~/.fzf
+
 " leader
 let mapleader="s"
 " status line fun
@@ -99,6 +102,15 @@ let g:UltiSnipsSnippetDirectories=$HOME.'/dotfiles/.vim/bundle/snippets/'
 
 " Overwrite Netrw default cwd to track to dir current open dir
 let g:netrw_keepdir=0
+
+" Rust
+" set foldlevel
+let g:rust_fold = 1
+" fmt on save
+let g:rustfmt_autosave = 0
+
+let g:rust_conceal = 1
+
 
 " Set tabs to two spaces
 function! TwoSpace()
