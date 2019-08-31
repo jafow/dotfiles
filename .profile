@@ -17,18 +17,19 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-RACKET="~/racket/bin"
-CARGO="~/.cargo/bin"
+RACKET="$HOME/racket/bin"
+CARGO="$HOME/.cargo/bin"
 PYENV_ROOT="$HOME/.pyenv/bin"
 export RVM="~/.rvm/gems/ruby-2.3.0/bin"
 export RVM_BIN="~/.rvm/bin"
-export PATH="$RVM_BIN:$RVM:~/.gem:$PYENV_ROOT:~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$RACKET:$CARGO"
 export EDITOR=vim
 export GIT_EDITOR=$EDITOR
 export GOPATH="$HOME/go"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/"
 export NVM_DIR="$HOME/.nvm"
 export NODE_PATH="/usr/lib/node_modules"
+export PATH="$RVM_BIN:$RVM:~/.gem:$PYENV_ROOT:~/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin/:/bin:$HOME/bin:/usr/bin/java:~/Android/Sdk/tools:~/Android/Sdk/platform-tools:/usr/local/lib:$NODE_PATH:/usr/local/go/bin:$RACKET:$CARGO"
+
 #phantomjs
 export PHANTOM_JS="/usr/local/bin/phantomjs"
 
@@ -37,4 +38,3 @@ export MYMACHINENAME="goodcomputer"
 
 #my machine color
 export MYMACHINECOLOR="033;01;34m"
-
