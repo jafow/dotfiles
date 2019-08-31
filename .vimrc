@@ -168,30 +168,10 @@ augroup JavscriptG
   autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable "Auto collapse by indentation"
 augroup END
 
-"folding is disabled by default but can be quickly toggled per-file by hitting zi"
-augroup XmlG
-  autocmd!
-  " Remove whitespace markers in htmlxml
-  autocmd filetype html,xml set listchars-=tab:>.
-  " Set WSDL files using XML filetype
-  autocmd BufNewFile,BufRead *.wsdl setlocal ft=xml
-augroup END
-
 augroup Snips
   autocmd!
   autocmd BufNewFile,BufReadPost *.snippets setlocal noet ci pi sts=0 sw=4 ts=4 listchars-=tab:>. listchars=tab:\|\ "
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
-augroup END
-
-augroup StartIt
-  autocmd!
-  autocmd BufNewFile,BufReadPost *.vimrc call TwoSpace()
-
-  autocmd FocusLost * set nornu
-  autocmd FocusGained * set rnu
-
-  autocmd InsertEnter * set nornu
-  autocmd InsertLeave * set rnu
 augroup END
 
 " Keeps fugitive buffers from getting out of hand
