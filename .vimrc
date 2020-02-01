@@ -180,6 +180,13 @@ augroup Snips
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
 augroup END
 
+
+" format yaml files
+augroup YamlFormat
+  autocmd!
+  autocmd BufNew,BufEnter *.yaml,*.yml call Yaml()
+augroup END
+
 " Keeps fugitive buffers from getting out of hand
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
