@@ -141,6 +141,12 @@ function! WrapIt()
   setlocal textwidth=80
 endfunction
 
+" make yaml files always use 2 spaces
+fun! Yaml()
+  setlocal ts=2
+  setlocal sw=2
+endf
+
 augroup Text
   autocmd!
   autocmd BufNewFile,BufReadPost *.md,*.markdown call WrapIt()
@@ -172,6 +178,13 @@ augroup Snips
   autocmd!
   autocmd BufNewFile,BufReadPost *.snippets setlocal noet ci pi sts=0 sw=4 ts=4 listchars-=tab:>. listchars=tab:\|\ "
   autocmd BufNewFile,BufReadPost *.snippets hi SpecialKey ctermbg=NONE ctermfg=gray
+augroup END
+
+
+" format yaml files
+augroup YamlFormat
+  autocmd!
+  autocmd BufNew,BufEnter *.yaml,*.yml call Yaml()
 augroup END
 
 " Keeps fugitive buffers from getting out of hand

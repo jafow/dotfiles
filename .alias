@@ -67,3 +67,5 @@ done
 
 # build & run beaker to a bg process
 alias beaker="cd ~/Development/beaker && npm run start > /dev/null &"
+
+alias blogg="cd ~/Documents/blog-posts/very-good-website.xyz"
