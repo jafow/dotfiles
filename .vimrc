@@ -141,6 +141,12 @@ function! WrapIt()
   setlocal textwidth=80
 endfunction
 
+" make yaml files always use 2 spaces
+fun! Yaml()
+  setlocal ts=2
+  setlocal sw=2
+endf
+
 augroup Text
   autocmd!
   autocmd BufNewFile,BufReadPost *.md,*.markdown call WrapIt()
