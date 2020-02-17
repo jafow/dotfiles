@@ -69,3 +69,7 @@ done
 alias beaker="cd ~/Development/beaker && npm run start > /dev/null &"
 
 alias blogg="cd ~/Documents/blog-posts/very-good-website.xyz"
+
+# kubectl
+alias k=kubectl
+complete -F __start_kubectl k
