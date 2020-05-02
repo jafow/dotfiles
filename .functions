@@ -2,8 +2,19 @@
 
 # swap ctrl and caps on linux
 function swapctrl() {
-    gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
-    echo "swapped ctrl with caps"
+    local current
+
+    current=$(gsettings get org.gnome.desktop.input-sources xkb-options)
+    echo $current | grep 'ctrl:swapcaps' > /dev/null
+    if [ $? -eq 1 ]; then
+        # capslock and ctrl arent swapped so set it
+        gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
+        printf "%s\n" "set ctrl swap with caps"
+    else
+        # capslock and ctrl are already swapped so reset to default
+        gsettings reset org.gnome.desktop.input-sources xkb-options
+        printf "%s\n" "unset ctrl swap with caps"
+    fi
 }
 
 # mk and cd
@@ -73,4 +84,12 @@ function xtoggletouchpad() {
 # captain's log
 function logbook() {
     vim ~/logbook/`date +%Y-%m-%d`.md
+}
+
+# clear aws vars from env
+function awsunset() {
+    for k in `env | grep -E '^AWS_\w+' | sed -E 's/=.*$/==REDACTED==/g'`; do
+        printf "%s\n" "unsetting $k"
+        unset $(echo $k | sed -E 's/=.*//g')
+    done
 }
