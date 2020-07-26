@@ -11,6 +11,7 @@ editor = vim
 whitespace = trailing-space,tabwidth=2
 [push]
 default = simple
+followTags = true
 [alias]
 co = checkout
 ci = commit
@@ -33,3 +34,5 @@ pom=pull origin master
 	tool = vimdiff
 [diff]
 	tool = vimdiff
+[gpg]
+	program = gpg2
