@@ -43,3 +43,6 @@
 [submodule ".vim/pack/git-plugins/start/LanguageClient-neovim"]
 	path = .vim/pack/git-plugins/start/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
+[submodule "packer.vim"]
+	path = .vim/pack/git-plugins/start/packer.nvim
+	url = https://github.com/wbthomason/packer.nvim
